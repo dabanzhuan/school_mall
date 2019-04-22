@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.wsk.dao.UserCollectionMapper" >
-  <resultMap id="BaseResultMap" type="com.wsk.pojo.UserCollection" >
+<mapper namespace="me.liuwenhan.dao.UserCollectionMapper" >
+  <resultMap id="BaseResultMap" type="me.liuwenhan.pojo.UserCollection" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="modified" property="modified" jdbcType="TIMESTAMP" />
     <result column="uid" property="uid" jdbcType="INTEGER" />
@@ -39,13 +39,13 @@
     delete from <include refid="table"/>
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.wsk.pojo.UserCollection" >
+  <insert id="insert" parameterType="me.liuwenhan.pojo.UserCollection" >
     insert into <include refid="table"/> (id, modified, uid,
       sid, display)
     values (#{id,jdbcType=INTEGER}, #{modified,jdbcType=TIMESTAMP}, #{uid,jdbcType=INTEGER}, 
       #{sid,jdbcType=INTEGER}, #{display,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.wsk.pojo.UserCollection" >
+  <insert id="insertSelective" parameterType="me.liuwenhan.pojo.UserCollection" >
     insert into <include refid="table"/>
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -82,7 +82,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wsk.pojo.UserCollection" >
+  <update id="updateByPrimaryKeySelective" parameterType="me.liuwenhan.pojo.UserCollection" >
     update <include refid="table"/>
     <set >
       <if test="modified != null" >
@@ -100,7 +100,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.wsk.pojo.UserCollection" >
+  <update id="updateByPrimaryKey" parameterType="me.liuwenhan.pojo.UserCollection" >
     update
     <include refid="table"/>
     set modified = #{modified,jdbcType=TIMESTAMP},

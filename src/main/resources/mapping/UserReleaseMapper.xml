@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.wsk.dao.UserReleaseMapper" >
-  <resultMap id="BaseResultMap" type="com.wsk.pojo.UserRelease" >
+<mapper namespace="me.liuwenhan.dao.UserReleaseMapper" >
+  <resultMap id="BaseResultMap" type="me.liuwenhan.pojo.UserRelease" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="modified" property="modified" jdbcType="TIMESTAMP" />
     <result column="display" property="display" jdbcType="INTEGER" />
@@ -39,13 +39,13 @@
     delete from <include refid="table"/>
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.wsk.pojo.UserRelease" >
+  <insert id="insert" parameterType="me.liuwenhan.pojo.UserRelease" >
     insert into <include refid="table"/> (id, modified, display,
       uid, sid)
     values (#{id,jdbcType=INTEGER}, #{modified,jdbcType=TIMESTAMP}, #{display,jdbcType=INTEGER}, 
       #{uid,jdbcType=INTEGER}, #{sid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.wsk.pojo.UserRelease" >
+  <insert id="insertSelective" parameterType="me.liuwenhan.pojo.UserRelease" >
     insert into <include refid="table"/>
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -82,7 +82,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wsk.pojo.UserRelease" >
+  <update id="updateByPrimaryKeySelective" parameterType="me.liuwenhan.pojo.UserRelease" >
     update <include refid="table"/>
     <set >
       <if test="modified != null" >
@@ -100,7 +100,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.wsk.pojo.UserRelease" >
+  <update id="updateByPrimaryKey" parameterType="me.liuwenhan.pojo.UserRelease" >
     update
     <include refid="table"/>
     set modified = #{modified,jdbcType=TIMESTAMP},

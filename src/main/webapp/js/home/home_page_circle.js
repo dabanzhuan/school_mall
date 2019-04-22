@@ -1,6 +1,7 @@
 /**
  * Created by alone on 2017/5/11.
  */
+// 首页轮播图
 $(function () {
     var time_out = setTimeout(moveToRight, 3500);
     var isMove = false;

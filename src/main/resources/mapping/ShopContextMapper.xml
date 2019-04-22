@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.wsk.dao.ShopContextMapper" >
-  <resultMap id="BaseResultMap" type="com.wsk.pojo.ShopContext" >
+<mapper namespace="me.liuwenhan.dao.ShopContextMapper" >
+  <resultMap id="BaseResultMap" type="me.liuwenhan.pojo.ShopContext" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="modified" property="modified" jdbcType="TIMESTAMP" />
     <result column="sid" property="sid" jdbcType="INTEGER" />
@@ -40,7 +40,7 @@
     delete from <include refid="table"/>
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.wsk.pojo.ShopContext" >
+  <insert id="insert" parameterType="me.liuwenhan.pojo.ShopContext" >
     insert into <include refid="table"/> (id, modified, sid,
     context, display, uid
     )
@@ -48,7 +48,7 @@
     #{context,jdbcType=VARCHAR}, #{display,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}
     )
   </insert>
-  <insert id="insertSelective" parameterType="com.wsk.pojo.ShopContext" >
+  <insert id="insertSelective" parameterType="me.liuwenhan.pojo.ShopContext" >
     insert into <include refid="table"/>
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -91,7 +91,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wsk.pojo.ShopContext" >
+  <update id="updateByPrimaryKeySelective" parameterType="me.liuwenhan.pojo.ShopContext" >
     update <include refid="table"/>
     <set >
       <if test="modified != null" >
@@ -112,7 +112,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.wsk.pojo.ShopContext" >
+  <update id="updateByPrimaryKey" parameterType="me.liuwenhan.pojo.ShopContext" >
     update
     <include refid="table"/>
     set modified = #{modified,jdbcType=TIMESTAMP},

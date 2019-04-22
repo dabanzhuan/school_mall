@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.wsk.dao.SpecificMapper" >
-  <resultMap id="BaseResultMap" type="com.wsk.pojo.Specific" >
+<mapper namespace="me.liuwenhan.dao.SpecificMapper" >
+  <resultMap id="BaseResultMap" type="me.liuwenhan.pojo.Specific" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="modified" property="modified" jdbcType="TIMESTAMP" />
@@ -31,13 +31,13 @@
     delete from <include refid="table"/>
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.wsk.pojo.Specific" >
+  <insert id="insert" parameterType="me.liuwenhan.pojo.Specific" >
     insert into <include refid="table"/> (id, name, modified,
       cid)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{modified,jdbcType=TIMESTAMP}, 
       #{cid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.wsk.pojo.Specific" >
+  <insert id="insertSelective" parameterType="me.liuwenhan.pojo.Specific" >
     insert into <include refid="table"/>
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -68,7 +68,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wsk.pojo.Specific" >
+  <update id="updateByPrimaryKeySelective" parameterType="me.liuwenhan.pojo.Specific" >
     update <include refid="table"/>
     <set >
       <if test="name != null" >
@@ -83,7 +83,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.wsk.pojo.Specific" >
+  <update id="updateByPrimaryKey" parameterType="me.liuwenhan.pojo.Specific" >
     update
     <include refid="table"/>
     set name = #{name,jdbcType=VARCHAR},

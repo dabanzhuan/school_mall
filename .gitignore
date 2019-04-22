@@ -1,5 +1,27 @@
-# Created by .ignore support plugin (hsz.mobi)
-/target
+**/target/
+
+**/.gitignore
+# IntelliJ project files
 .idea
 *.iml
-/src/main/resources/jdbc.properties
+**/out
+html
+*.ipr
+*.iws
+
+# Eclipse project files
+**/.classpath
+**/.project
+**/.settings/
+**/bin/
+
+# gradle
+.gradle
+**/build
+
+# MacOS
+.DS_Store
+/repo/
+gradle/
+gradlew
+gradlew.bat

@@ -7,9 +7,37 @@ $( function() {
         var my_this = $(this);
         if (type=="radio") {
 //                    单选按钮
-            var value = $(this).siblings(".first_info").children("input").val();
+            var val = $(this).siblings(".first_info").children("input:checked").val();
+            if (val==undefined||val=='') {
+                $(this).siblings(".first_info").children(".reqiure_enter").show(0);
+            }else{
+//                        修改，修改类名或id，直接获取类名就可以
+                var value =$(this).siblings(".first_info").children("input:checked").val();
+                var arr =   which_update + "=" + value + "&" + "token=" + token+"" ;
+                $.ajax({
+                    url:'/certification',
+                    type:'post',
+                    dataType:'JSON',
+                    data:arr,
+                    success:function (data) {
+                        var result = data.result;
+                        if (result === 0){
+                            alert('更新失败，请检测信息格式');
+                        } else if (result === 1){
+                            // $(this).text(value);
+                            alert('更新成功');
+                            alert(value);
+                            if (value === "1") {
+                                updateText("男");
+                            }else {
+                                updateText("女");
+                            }
 
-            alert(value);
+                        }
+
+                    }
+                });
+            }
         }else {
             var val = $(this).siblings(".first_info").children("input").val();
             if (val==undefined||val=='') {
@@ -39,6 +67,8 @@ $( function() {
                 });
             }
         }
+
+
         function updateText(value) {
             my_this.parent().prev().children().html(value);
         }
